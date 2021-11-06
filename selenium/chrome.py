@@ -7,7 +7,7 @@ import os
 driver = webdriver.Chrome()
 driver.get("https://www.google.co.kr/imghp?hl=ko&ogbl")
 
-name = "연예인 이름"
+name = "name"
 try:
     os.mkdir(name)
 except:
@@ -41,7 +41,7 @@ for image in images:
         image.click()
         time.sleep(1.5)
         imgUrl = (driver.find_element_by_xpath('/html/body/div[2]/c-wiz/div[3]/div[2]/div[3]/div/div/div[3]/div[2]/c-wiz/div/div[1]/div[1]/div/div[2]/a/img').get_attribute("src"))
-        urllib.request.urlretrieve(imgUrl, name + str(count) + ".jpg")
+        urllib.request.urlretrieve(imgUrl, name + "/", name + str(count) + ".jpg")
         count = count + 1
     except:
         pass
